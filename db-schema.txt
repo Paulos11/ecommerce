@@ -52,3 +52,22 @@ Order_detail
 - price 
 - qty 
 - total 
+
+
+
+
+
+api(folder) 
+   - controller(folder)
+     .index.js 
+     - auth(folder)
+   - lib(folder)
+     .index.js;
+   - models (folder)
+     . user.model.js
+   - routes 
+     .index.js
+     - auth (folder)
+        .index.js
+   index.js
+  

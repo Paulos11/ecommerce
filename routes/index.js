@@ -1,8 +1,11 @@
 const express = require("express");
 const AuthRoutes = require("./auth");
 const router = express.Router();
+const profileRoutes = require("./profile");
+const { auth } = require("@/lib/index");
 
 router.use("/auth", AuthRoutes);
+router.use("/profile", auth, profileRoutes);
 
 module.exports = router;
 

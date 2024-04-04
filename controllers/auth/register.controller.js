@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { User } = require("@/models");
+const { errorHandel, validationError } = require("@/lib");
 
 class RegisterCtrl {
   register = async (req, res, next) => {
@@ -14,20 +15,12 @@ class RegisterCtrl {
           messgae: "Thank your registration. please procced to login",
         });
       } else {
-        return next({
-          message: "there seems to be some validation error",
-          errors: {
-            password: "Password and confirmed password do not match",
-            status: 422,
-          },
+        return validationError({
+          password: "the passwordis incorrect",
         });
       }
     } catch (err) {
-      console.log(err);
-      return next({
-        messgae: "There seems to be some error",
-        status: 422,
-      });
+      return errorHandel(err, next);
     }
   };
 }

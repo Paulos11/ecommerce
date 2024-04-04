@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { modelConfig } = require("@/lib");
+const { modelConfig } = require("@/config");
 
 const User = model(
   "User",
@@ -19,6 +19,7 @@ const User = model(
       password: {
         type: String,
         required: true,
+        select: false,
       },
 
       phone: {
