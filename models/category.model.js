@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { modelConfig } = require("@/lib");
+const modelConfig = require("@/config");
 
 const Category = model(
   "Category",
@@ -14,9 +14,8 @@ const Category = model(
         default: true,
       },
     },
-    {
-      modelConfig,
-    }
+
+    modelConfig
   )
 );
 
