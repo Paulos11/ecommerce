@@ -1,12 +1,12 @@
 const { errorHandler, validationError } = require("@/lib");
 const bcrypt = require("bcryptjs");
-const Product = require("@/models/product.model");
+const Products = require("@/models/product.model");
 const { unlinkSync } = require("fs");
 
 class ProductCtrl {
   index = async (req, res, next) => {
     try {
-      const products = await Product.find();
+      const products = await Products.find();
       res.json(products);
     } catch (err) {
       errorHandler(err, next);
@@ -34,7 +34,7 @@ class ProductCtrl {
       }
 
       const hash = await bcrypt.hash(password, 10);
-      await Product.create({
+      await Products.create({
         name,
         status,
         description,
@@ -56,7 +56,7 @@ class ProductCtrl {
 
   show = async (req, res, next) => {
     try {
-      const product = await Product.findById(req.params.id);
+      const product = await Products.findById(req.params.id);
       if (!product) {
         return next({
           message: "Product Not found",
@@ -83,7 +83,7 @@ class ProductCtrl {
       } = req.body;
       let images = [];
 
-      const existingProduct = await Product.findById(req.params.id);
+      const existingProduct = await Products.findById(req.params.id);
       if (!existingProduct) {
         return next({
           message: "Product Not found",
@@ -117,7 +117,7 @@ class ProductCtrl {
 
   destroy = async (req, res, next) => {
     try {
-      const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+      const deletedProduct = await Products.findByIdAndDelete(req.params.id);
       if (deletedProduct) {
         for (let image of deletedProduct.images) {
           unlinkSync(`./uploads/${image}`);
