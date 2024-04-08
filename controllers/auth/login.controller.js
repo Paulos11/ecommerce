@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { errorHandle } = require("@/config"); // Corrected typo
+=======
+const { errorHandel } = require("@/config");
+>>>>>>> origin/main
 const { User } = require("@/models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -15,7 +19,11 @@ class LoginCtrl {
             {
               uid: user._id,
               iat: Math.floor(Date.now() / 1000),
+<<<<<<< HEAD
               exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60,
+=======
+              exp: Math.floor(Date() / 1000) + 30 * 24 * 60 * 60,
+>>>>>>> origin/main
             },
             process.env.JWT_SECRET
           );
@@ -39,7 +47,11 @@ class LoginCtrl {
         });
       }
     } catch (err) {
+<<<<<<< HEAD
       errorHandle(err, next); // Corrected typo
+=======
+      errorHandel(err, next);
+>>>>>>> origin/main
     }
   };
 }

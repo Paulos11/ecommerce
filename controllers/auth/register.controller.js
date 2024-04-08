@@ -1,6 +1,10 @@
 const bcrypt = require("bcryptjs");
 const { User } = require("@/models");
+<<<<<<< HEAD
 const { errorHandler, validationError } = require("@/lib");
+=======
+const { errorHandel, validationError } = require("@/lib");
+>>>>>>> origin/main
 
 class RegisterCtrl {
   register = async (req, res, next) => {
@@ -19,8 +23,13 @@ class RegisterCtrl {
           password: "the passwordis incorrect",
         });
       }
+<<<<<<< HEAD
     } catch (errors) {
       return errorHandler(next, errors);
+=======
+    } catch (err) {
+      return errorHandel(err, next);
+>>>>>>> origin/main
     }
   };
 }

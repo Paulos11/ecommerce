@@ -1,6 +1,7 @@
 const RegisterCtrl = require("./register.controller");
 const LoginCtrl = require("./login.controller");
 const ProfileCtrl = require("./profile.controller");
+<<<<<<< HEAD
 const BrandCtrl = require("@/controllers/cms/brandController");
 const CategoryCtrl = require("@/controllers/cms/categoryController");
 
@@ -11,3 +12,7 @@ module.exports = {
   CategoryCtrl,
   BrandCtrl,
 };
+=======
+
+module.exports = { RegisterCtrl, LoginCtrl, ProfileCtrl };
+>>>>>>> origin/main
